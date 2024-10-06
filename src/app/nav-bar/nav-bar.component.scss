@@ -1,0 +1,99 @@
+$gold-color: #d4af37;
+// Border Radius
+$border-radius-base: 8px;
+// Fonts
+$font-family-base: 'Roboto', sans-serif;
+$font-size-base: 16px;
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    padding: 10px 20px;
+    position: relative;
+    z-index: 1000;
+    
+    @media (max-width: 768px) {
+      flex-wrap: wrap; // Allow items to wrap
+      padding: 10px;   // Reduce padding for smaller screens
+    }
+
+    .navbar-title {
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+
+      @media (max-width: 768px) {
+        font-size: 20px; // Reduce title size on smaller screens
+        margin-bottom: 10px;
+      }
+
+      @media (max-width: 480px) {
+        font-size: 18px; // Further reduce for phones
+      }
+    }
+
+    .navbar-buttons {
+      display: flex;
+      gap: 20px;
+
+      @media (max-width: 768px) {
+        flex-wrap: wrap;      // Wrap buttons on smaller screens
+        gap: 10px;            // Reduce gap between buttons
+        width: 100%;          // Ensure buttons take up full width
+        justify-content: center;
+      }
+
+      .nav-btn {
+        background-color: $gold-color;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        color: black;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        border-radius: $border-radius-base;
+        font-family: $font-family-base;
+
+        @media (max-width: 768px) {
+          width: 100%;          // Make buttons full-width on smaller screens
+          padding: 8px 10px;    // Reduce padding
+          font-size: 14px;      // Smaller font size for mobile
+        }
+
+        &:hover {
+          background-color: darkgoldenrod;
+        }
+      }
+    }
+
+    .navbar-signout {
+      @media (max-width: 768px) {
+        width: 100%;           // Ensure signout button is full-width
+        margin-top: 10px;      // Add spacing between navbar buttons and signout button
+      }
+
+      .signout-btn {
+        background-color: $gold-color;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        color: black;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        border-radius: $border-radius-base;
+        font-family: $font-family-base;
+
+        @media (max-width: 768px) {
+          width: 100%;         // Make signout button full-width
+          padding: 8px 10px;   // Reduce padding
+          font-size: 14px;     // Smaller font size for mobile
+        }
+
+        &:hover {
+          background-color: darkgoldenrod;
+        }
+      }
+    }
+}

@@ -1,0 +1,13 @@
+<nav class="navbar">
+    <div class="navbar-title">RSABot</div>
+    <div class="navbar-buttons">
+      <button class="nav-btn" [routerLink]="['/home']">Home</button>
+      <button class="nav-btn" [routerLink]="['/download']">Download</button>
+      <button class="nav-btn" [routerLink]="['/software']">Software</button>
+      <button class="nav-btn" [routerLink]="['/account']">My Account</button>
+    </div>
+    <div class="navbar-signout">
+      <button (click)="signOut()" class="nav-btn signout-btn">Signout</button>
+    </div>
+  </nav>
+  

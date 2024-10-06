@@ -1,0 +1,93 @@
+ @import '../../styles.scss';
+
+ .center-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px; 
+
+    @media (max-width: 768px) {
+      padding: 10px;  // Add more padding for mobile
+    }
+  }
+  
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    width: 60%;
+    background-color: $gray-color;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;  // Stack items vertically
+      width: 90%;                  // Reduce the width for smaller screens
+      padding: 10px;               // Adjust padding for smaller screens
+    }
+  }
+  
+  .profile-container, .quote-search, .purchase-container, .sell-container {
+    padding: 20px;
+    //background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+
+  h3 {
+    color: $gold-color;
+    text-align: center;
+    margin-bottom: $spacing-unit * 2;
+
+    @media (max-width: 768px) {
+      font-size: 1.25rem; // Smaller font for mobile
+      margin-bottom: $spacing-unit * 1; // Less space between elements
+    }
+  }
+
+  .form-group {
+    margin-bottom: $spacing-unit * 1.5;
+
+    p {
+      color: $gray-color;
+    }
+
+    label {
+      color: $white-color;
+      margin-bottom: 0.5rem;
+      display: block;
+
+      @media (max-width: 768px) {
+        font-size: 0.875rem;  // Adjust label font size for mobile
+      }
+    }
+
+    select {
+      @include input-style();
+    }
+  
+    .text-danger {
+      font-size: 12px;
+      color: red;
+    }
+
+    input {
+      @include input-style();
+    }
+
+    .error {
+      color: $gold-color;
+      font-size: 0.875rem;
+
+      @media (max-width: 768px) {
+        font-size: 0.75rem; // Reduce error font size for mobile
+      }
+    }
+  }
+
+  button {
+    @include button($gold-color);
+    width: 100%;
+  }

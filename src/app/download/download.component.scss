@@ -1,0 +1,27 @@
+@import '../../styles.scss';
+
+.download-box {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: $spacing-unit * 2;
+    background-color: $white-color;
+    border-radius: $border-radius-base;
+    box-shadow: $box-shadow-light;
+    text-align: center;
+
+  .download-header {
+    font-size: 1.8rem;
+    color: $black-color;
+    margin-bottom: $spacing-unit * 2;
+  }
+
+  .download-button {
+    @include button($gold-color);
+    margin-bottom: $spacing-unit;
+    margin-left: $spacing-unit;
+    &:hover {
+      background-color: darken($gold-color, 10%);
+    }
+
+  }
+}

@@ -1,0 +1,56 @@
+<div class="login-container">
+  <h2>RSABot - Login</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <!-- Email Input -->
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input
+        type="email"
+        id="email"
+        formControlName="email" 
+        class="form-control"
+        placeholder="Enter your email"
+      >
+      <!-- Display an error if the email field is invalid -->
+      <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="error">
+        Email is required and must be valid.
+      </div>
+    </div>
+
+    <!-- Password Input -->
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input
+        type="password"
+        id="password"
+        formControlName="password" 
+        class="form-control"
+        placeholder="Enter your password"
+      />
+      <!-- Display an error if the password field is invalid -->
+      <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="error">
+        Password is required.
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="form-group">
+      <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary">
+        Login
+      </button>
+    </div>
+  </form>
+
+  <div class="option-container">
+    <button [routerLink]="['/signup']">Register an Account</button>
+    <button [routerLink]="['/forgot-password']">Forgot Username/Password</button>
+  </div>
+
+  <!-- Loading Spinner -->
+  <div *ngIf="isLoading" class="spinner-container">
+    <div class="loading-spinner"></div>
+  </div>
+
+</div>
+
+

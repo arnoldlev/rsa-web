@@ -1,0 +1,58 @@
+@import '../../styles.scss';
+
+.option-container {
+  margin-bottom: 13px;
+  margin: 0 auto;
+  padding: 2rem;
+
+  button {
+    @include button($gray-color);
+    width: 100%;
+    margin-bottom: 1rem; /* Adds space between stacked buttons */
+  }
+
+  /* Remove the margin from the last button */
+  button:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.login-container {
+  background-color: $gray-color;
+  padding: 2rem;
+  border-radius: $border-radius-base;
+  box-shadow: $box-shadow-light;
+  max-width: 400px;
+  margin: 0 auto;
+  justify-content: center;   /* Center horizontally */
+  align-items: center;       /* Center vertically */
+  width: 100%;
+
+  h2 {
+    color: $gold-color;
+    text-align: center;
+    margin-bottom: $spacing-unit * 2;
+  }
+
+  .form-group {
+    margin-bottom: $spacing-unit * 1.5;
+
+    label {
+      color: $white-color;
+      margin-bottom: 0.5rem;
+      font-size: medium;
+      display: block;
+    }
+
+    input {
+      @include input-style();
+    }
+  }
+
+  button {
+    @include button($gold-color);
+    width: 100%;
+  }
+
+
+}

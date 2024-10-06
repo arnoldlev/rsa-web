@@ -1,0 +1,50 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="account-form-container">
+    <h2>User Credentials</h2>
+    <form [formGroup]="credentialsForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="licenseKey">License Key</label>
+        <input
+          type="text"
+          id="licenseKey"
+          formControlName="licenseKey"
+          placeholder="Enter your license key"
+        />
+      </div>
+  
+      <div class="form-group">
+        <label for="apiToken">API Token</label>
+        <input
+          type="text"
+          id="apiToken"
+          formControlName="apiToken"
+          placeholder="Enter your API token"
+        />
+      </div>
+  
+      <div class="form-group">
+        <label for="sandboxToken">Sandbox Token</label>
+        <input
+          type="text"
+          id="sandboxToken"
+          formControlName="sandboxToken"
+          placeholder="Enter your Sandbox token"
+        />
+      </div>
+  
+      <div class="button-group">
+        <button type="button" (click)="onValidate()" class="btn btn-validate">
+          Validate
+        </button>
+        <button type="submit" class="btn btn-save">
+          Save
+        </button>
+      </div>
+    </form>
+  </div>
+  
+  <!-- Loading Spinner -->
+  <div *ngIf="isLoading" class="spinner-container">
+    <div class="loading-spinner"></div>
+  </div>

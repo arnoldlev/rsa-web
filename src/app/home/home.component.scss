@@ -1,0 +1,25 @@
+@import '../../styles.scss';
+
+.home-container {
+  padding: 3rem;
+  text-align: center;
+  color: $white-color;
+
+  h1 {
+    font-size: 2.5rem;
+    color: $black-color;
+    position: relative;
+  }
+
+  p {
+    font-size: 1.25rem;
+    margin-top: $spacing-unit * 2;
+  }
+
+  .home-button {
+    @include button($gold-color);
+    margin-top: $spacing-unit * 2;
+    padding: 1rem 2rem;
+    font-size: 1.25rem;
+  }
+}
