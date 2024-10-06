@@ -47,7 +47,7 @@ export class AuthInterceptor implements HttpInterceptor {
       switchMap(user => {
         const apiKey = keyType === 'apiKey' ? user.apiKey : user.sandboxKey;
         const modifiedRequest = request.clone({
-          headers: request.headers.set('Authorization', `Bearer ${apiKey}`)
+          headers: request.headers.set('Authorization', `Bearer ${apiKey}`).delete('Custom-Service') 
         });
         return next.handle(modifiedRequest);
       }),
