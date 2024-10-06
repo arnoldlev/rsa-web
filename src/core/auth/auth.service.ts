@@ -13,7 +13,7 @@ const ROLE_KEY = 'user_roles';
   providedIn: 'root'
 })
 export class AuthService {
-  private baseUrl = 'http://localhost:5089/auth' //'https://api.rsabot.com/auth'; // Your backend API URL
+  private baseUrl = 'https://api.rsabot.com/auth'; // Your backend API URL
   private currentUserSubject: BehaviorSubject<any>;
   public currentUser: Observable<any>;
 
