@@ -149,20 +149,25 @@ export class SoftwareComponent implements OnInit {
         concatMap(accountNumber => {
           return this.tradeService.placeOrder('https://api.tradier.com/v1', accountNumber, this.purchaseForm.value.action, stock)
             .pipe(
-              takeUntil(this.destroy$),
+              take(1),
               tap(res => {
                 if ('error' in res) {
                   const errorResponse = res as Error;
                   this.messageService.showError(`Order failed for account ${accountNumber}: ${errorResponse.error[0]}`);
+                  return errorResponse;
                 } else {
                   const status = res as OrderStatus;
                   this.messageService.showSuccess(`Tap: Order placed for account ${accountNumber}: ${status.status.toUpperCase()}`);
+                  return status;
                 }
               }),
               catchError(error => {
                 console.error(`Tap: Order failed for account ${accountNumber}`, error);
                 this.messageService.showError(`Order failed for account ${accountNumber}: Internal Server Error`);
-                return of(null);
+                return of({ error: [`Failed to process positions for account ${accountNumber}`] } as Error);
+              }),
+              finalize(() => {
+                console.log(`(Trade Finalize): Completed purchase2 for account ${accountNumber}`);
               })
             );
         })
@@ -173,6 +178,9 @@ export class SoftwareComponent implements OnInit {
         error: err => {
           console.error('An error occurred during the sequential order placement:', err);
           this.messageService.showError('An error occurred while placing orders.');
+        },
+        complete: () => {
+          console.log('All positions fetched and processed.');
         }
       });
     }
